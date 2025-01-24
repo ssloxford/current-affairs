@@ -1,0 +1,22 @@
+<ul>
+    <a href="{{ parent_dir }}">
+        &lt- Parent Folder
+    </a>
+    {% for file in files %}
+    <li>
+        {% if file.isdir %}
+            <a href="{{ base_dir + file.name }}">
+                {{ file.name }}
+            </a>
+        {% else %}
+            {{ file.name }} ({{ file.size }})
+            <a href="{{ base_dir + file.name }}">
+                [Download]
+            </a>
+            <a href="{{ base_dir + file.name }}?ndl">
+                [View]
+            </a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>

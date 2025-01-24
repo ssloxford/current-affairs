@@ -1,0 +1,10 @@
+*.pyc
+*.so
+__pycache__
+exi/*
+*.exig
+schemas/*
+type.txt
+data_collector.service
+.vscode
+results*

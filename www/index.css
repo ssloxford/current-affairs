@@ -1,0 +1,33 @@
+.task-children {
+    padding-left: 12px;
+}
+
+.task-name {
+    display:inline-block;
+}
+.task-state {
+    display:inline-block;
+    width: 1.5em;
+}
+
+.chg-ctrl {
+    /*! display: inline-block; */
+}
+
+.waiter-auto-checkbox {
+    display: inline-block;
+  }
+  .watier-buttons {
+    display: inline-block;
+  }
+  .waiter-root {
+    /*! display: inline-block; */
+  }
+button {
+    height: 1.8em;
+    font-size: 16px;
+}
+* {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}

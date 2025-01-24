@@ -1,0 +1,10 @@
+pyopenssl
+flask
+rpi_hardware_pwm
+spidev
+RPi.GPIO
+asyncio
+netifaces
+websockets
+pyopenssl
+cryptography

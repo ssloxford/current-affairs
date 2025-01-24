@@ -1,0 +1,14 @@
+[Unit]
+Description=EV Data Collector
+
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+[Service]
+ExecStart=/home/pi/EVCC/SSL-EV-Study-Code/startup.sh
+
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

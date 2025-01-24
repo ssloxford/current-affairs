@@ -1,0 +1,6 @@
+[submodule "open-plc-utils"]
+	path = open-plc-utils
+	url = https://github.com/ssloxford/open-plc-utils
+[submodule "libs/V2GDecoder"]
+	path = libs/V2GDecoder
+	url = https://github.com/FlUxIuS/V2Gdecoder
