@@ -7,7 +7,7 @@ This code is used in the paper "Current Affairs: A Security Measurement Study of
 
 The following section provides setup instructions on a Raspberry 4 running Raspbian.
 
-#### Hardware
+### Hardware
 
 To interface with real EV chargers, multiple hardware components are needed:
 
@@ -16,12 +16,32 @@ To interface with real EV chargers, multiple hardware components are needed:
 - Special electronics are needed to read and generate the voltages necessary for CCS basic signalling. We used a custom PCB, the design files are located in `pcb/`. This was designed in Easyeda and ordered from JLCPCB. The code to interface with the board is located in `code/hal_v2.py`. Different hardware can be used by re-implementing this file. If using our PCB, the differential signal of the PLC modem should be connected to PLC+ and PLC-, and the GND, EV CP and EV PP sockets on the PCB should be connected to the PE, CP and PP pins of the CCS socket respectively.
 - We recommend using a power bank to make the setup portable, and using a small external screen + wireless keyboard to assist debugging.
 
+### Software
+
+Setting up the software requires multiple components, and configuration changes.
+We provide a shell script to automate downloading packages, building V2GDecoder, open-plc-utils, and setting up the Python environment:
+```sh
+./install.sh
+source venv/bin/activate
+```
+
+The schema files are not downloaded by this script, and it does not edit system config options.
+Please see below for more details about each of these steps:
+
 #### Packages
 
 Most of the code is written in Python 3. Some portions are written as a C Python module. Install the necessary packages:
 ```sh
 apt install python3 python3-dev python3-pip build-essential tcpdump git maven
+```
+
+Install the Python packages:
+```sh
 pip3 install -r requirements.txt
+```
+or:
+```sh
+pip3 install pyopenssl flask asyncio netifaces websockets pyopenssl cryptography quart requests rpi_hardware_pwm spidev RPi.GPIO
 ```
 
 #### V2G decoding
@@ -61,6 +81,9 @@ schemas/
     ├── V2G_CI_WPT.xsd
     └── xmldsig-core-schema.xsd
 ```
+
+If you can not locate the schemas for a specific version, skip that folder.
+Then, comment out the relevant line in `code/v2g/app_protocol.py` to disable testing for that standard version.
 
 #### Python module
 

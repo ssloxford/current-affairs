@@ -6,5 +6,5 @@ exi/*
 schemas/*
 type.txt
 data_collector.service
-.vscode
+.vscode/*
 results*
